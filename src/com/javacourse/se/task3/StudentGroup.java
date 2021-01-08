@@ -81,15 +81,15 @@ public class StudentGroup {
         Arrays.sort(marksOfStudents);
     }
 
-    public static void guessNumber(){
+    public static void guessMark(){
         Scanner scanner = new Scanner(System.in);
         for(int i = 10; i <= 10; i++){
             int number = (int) (Math.random() * i);
             while (true){
-                System.out.println("введите число от 0 до " + i);
+                System.out.println("введите оценку от 0 до " + i);
                 int ourNumber = scanner.nextInt();
                 if (ourNumber < 0 || ourNumber > i) {
-                    System.out.println("Число вне диапазона");
+                    System.out.println("Оценка вне диапазона");
                 } else if (ourNumber == number){
                     System.out.println("Вы угадали!");
                     break;
