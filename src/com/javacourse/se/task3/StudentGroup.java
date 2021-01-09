@@ -56,7 +56,7 @@ public class StudentGroup {
 
     public void setRandomMarks() {
         for (int i = 0; i < marksOfStudents.length; i++){
-            marksOfStudents[i] = (int) (Math.random() * 10);
+            marksOfStudents[i] = (int) (Math.random() * 11);
         }
     }
 

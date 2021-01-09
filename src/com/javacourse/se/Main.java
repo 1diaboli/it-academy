@@ -1,8 +1,6 @@
 package com.javacourse.se;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
+
 import com.javacourse.se.task3.StudentGroup;
 
 public class Main {
@@ -21,8 +19,6 @@ public class Main {
         studentGroup.setRandomMarks();
         studentGroup.getMarksOfStudents();
         System.out.println();
-        StudentGroup.guessMark();
-
 
 
 
