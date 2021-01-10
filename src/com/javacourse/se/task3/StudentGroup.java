@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class StudentGroup {
 
-    Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     private static final String SCHOOL_NAME = "Гимназия №1";
     private String groupName;
     private String[] namesOfStudents  = new String[25];
@@ -82,7 +82,6 @@ public class StudentGroup {
     }
 
     public static void guessMark(){
-        Scanner scanner = new Scanner(System.in);
         for(int i = 10; i <= 10; i++){
             int number = (int) (Math.random() * i);
             while (true){
