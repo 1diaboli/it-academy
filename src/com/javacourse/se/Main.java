@@ -2,6 +2,7 @@ package com.javacourse.se;
 
 
 import com.javacourse.se.task3.StudentGroup;
+import com.javacourse.se.task4.Brand;
 
 public class Main {
 
@@ -19,6 +20,7 @@ public class Main {
         studentGroup.setRandomMarks();
         studentGroup.getMarksOfStudents();
         System.out.println();
+
 
 
 
