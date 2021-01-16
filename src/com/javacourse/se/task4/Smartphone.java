@@ -2,6 +2,7 @@ package com.javacourse.se.task4;
 
 import java.awt.Color;
 import java.util.Date;
+import java.util.Objects;
 
 public class Smartphone extends Phone implements Smart {
 
@@ -84,5 +85,50 @@ public class Smartphone extends Phone implements Smart {
   @Override
   public void installApp() {
     System.out.println("Select application to install on your Smartphone");
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+    Smartphone that = (Smartphone) o;
+    return sizeOfDisplay == that.sizeOfDisplay && screenResolution == that.screenResolution
+        && sizeOfRAM == that.sizeOfRAM && sizeOfMemory == that.sizeOfMemory
+        && cameraResolution == that.cameraResolution && sizeOfBattery == that.sizeOfBattery
+        && matrix == that.matrix && cpu == that.cpu;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(super.hashCode(), sizeOfDisplay, matrix, screenResolution, cpu, sizeOfRAM,
+            sizeOfMemory,
+            cameraResolution, sizeOfBattery);
+  }
+
+  @Override
+  public String toString() {
+    stringBuilder.append("Smartphone {");
+    stringBuilder.append("brand=").append(brand);
+    stringBuilder.append(", model='").append(model).append('\'');
+    stringBuilder.append(", color=").append(color);
+    stringBuilder.append(", releaseDate=").append(releaseDate);
+    stringBuilder.append(", sizeOfDisplay=").append(sizeOfDisplay);
+    stringBuilder.append(", matrix=").append(matrix);
+    stringBuilder.append(", screenResolution=").append(screenResolution);
+    stringBuilder.append(", cpu=").append(cpu);
+    stringBuilder.append(", sizeOfRAM=").append(sizeOfRAM);
+    stringBuilder.append(", sizeOfMemory=").append(sizeOfMemory);
+    stringBuilder.append(", cameraResolution=").append(cameraResolution);
+    stringBuilder.append(", sizeOfBattery=").append(sizeOfBattery);
+    stringBuilder.append('}');
+    return stringBuilder.toString();
   }
 }

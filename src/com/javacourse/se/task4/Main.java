@@ -6,9 +6,9 @@ public class Main {
 
   public static void main(String[] args) {
 
-//    Phone smartPhone1 = new Smartphone();
-//    smartPhone1.answer();
-//    smartPhone1.call();
+    Phone smartPhone1 = new Smartphone();
+    smartPhone1.answer();
+    smartPhone1.call();
 //
 //    System.out.println();
 //
@@ -40,7 +40,10 @@ public class Main {
 //    smartTV1.installOS();
 //    System.out.println(smartTV1.getBrand().getCountryOfBrand());
 
-//    Smartphone smartphone = new Smartphone(Brand.APPLE,"iPhone 12", Color.BLUE,1231231,15 );
+    Smartphone smartphone = new Smartphone();
+    System.out.println(smartphone.toString());
+    Mobilephone mobilephone = new Mobilephone();
+    System.out.println(mobilephone.toString());
 
 
 

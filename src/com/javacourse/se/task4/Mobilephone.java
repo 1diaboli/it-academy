@@ -2,6 +2,7 @@ package com.javacourse.se.task4;
 
 import java.awt.Color;
 import java.util.Date;
+import java.util.Objects;
 
 public class Mobilephone extends Phone {
 
@@ -54,5 +55,41 @@ public class Mobilephone extends Phone {
   @Override
   public void answer() {
     System.out.println("Hello, you call me on mobilephone");
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+    Mobilephone that = (Mobilephone) o;
+    return sizeOfDisplay == that.sizeOfDisplay && screenResolution == that.screenResolution
+        && camera == that.camera && colorDisplay == that.colorDisplay;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), sizeOfDisplay, screenResolution, camera, colorDisplay);
+  }
+
+  @Override
+  public String toString() {
+    stringBuilder.append("Mobilephone {");
+    stringBuilder.append("brand=").append(brand);
+    stringBuilder.append(", model='").append(model).append('\'');
+    stringBuilder.append(", color=").append(color);
+    stringBuilder.append(", releaseDate=").append(releaseDate);
+    stringBuilder.append(", sizeOfDisplay=").append(sizeOfDisplay);
+    stringBuilder.append(", screenResolution=").append(screenResolution);
+    stringBuilder.append(", camera=").append(camera);
+    stringBuilder.append(", colorDisplay=").append(colorDisplay);
+    stringBuilder.append('}');
+    return stringBuilder.toString();
   }
 }

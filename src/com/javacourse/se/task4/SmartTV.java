@@ -1,6 +1,7 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.util.Objects;
 
 public class SmartTV implements Smart {
 
@@ -79,5 +80,42 @@ public class SmartTV implements Smart {
   @Override
   public void installApp() {
     System.out.println("Select application to download on your TV");
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SmartTV smartTV = (SmartTV) o;
+    return sizeOfDisplay == smartTV.sizeOfDisplay && sizeOfRAM == smartTV.sizeOfRAM
+        && sizeOfMemory == smartTV.sizeOfMemory && wiFi == smartTV.wiFi && brand == smartTV.brand
+        && model.equals(smartTV.model) && color.equals(smartTV.color) && matrix == smartTV.matrix
+        && os == smartTV.os && cpu == smartTV.cpu;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(brand, model, color, matrix, sizeOfDisplay, os, cpu, sizeOfRAM, sizeOfMemory, wiFi);
+  }
+
+  @Override
+  public String toString() {
+    return "SmartTV{" +
+        "brand=" + brand +
+        ", model='" + model + '\'' +
+        ", color=" + color +
+        ", matrix=" + matrix +
+        ", sizeOfDisplay=" + sizeOfDisplay +
+        ", os=" + os +
+        ", cpu=" + cpu +
+        ", sizeOfRAM=" + sizeOfRAM +
+        ", sizeOfMemory=" + sizeOfMemory +
+        ", wiFi=" + wiFi +
+        '}';
   }
 }

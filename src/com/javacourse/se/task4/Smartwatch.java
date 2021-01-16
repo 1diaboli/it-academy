@@ -1,6 +1,7 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.util.Objects;
 
 public class Smartwatch implements Smart {
 
@@ -96,5 +97,46 @@ public class Smartwatch implements Smart {
   @Override
   public void installApp() {
     System.out.println("Select the application you want to add to your watch");
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Smartwatch that = (Smartwatch) o;
+    return sizeOfDisplay == that.sizeOfDisplay && sizeOfRAM == that.sizeOfRAM
+        && sizeOfMemory == that.sizeOfMemory && sizeOfBattery == that.sizeOfBattery
+        && brand == that.brand && model.equals(that.model) && bodyColor.equals(that.bodyColor)
+        && strapColor.equals(that.strapColor) && bodyMaterial.equals(that.bodyMaterial)
+        && os == that.os && matrix == that.matrix && cpu == that.cpu;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(brand, model, bodyColor, strapColor, bodyMaterial, os, matrix, cpu, sizeOfDisplay,
+            sizeOfRAM, sizeOfMemory, sizeOfBattery);
+  }
+
+  @Override
+  public String toString() {
+    return "Smartwatch{" +
+        "brand=" + brand +
+        ", model='" + model + '\'' +
+        ", bodyColor=" + bodyColor +
+        ", strapColor=" + strapColor +
+        ", bodyMaterial='" + bodyMaterial + '\'' +
+        ", os=" + os +
+        ", matrix=" + matrix +
+        ", cpu=" + cpu +
+        ", sizeOfDisplay=" + sizeOfDisplay +
+        ", sizeOfRAM=" + sizeOfRAM +
+        ", sizeOfMemory=" + sizeOfMemory +
+        ", sizeOfBattery=" + sizeOfBattery +
+        '}';
   }
 }
