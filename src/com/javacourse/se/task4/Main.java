@@ -36,8 +36,11 @@ public class Main {
 //
 //    System.out.println();
 
-    SmartTV smartTV1 = new SmartTV(Brand.SAMSUNG, "SADas", Color.BLACK, Matrix.IPS, 13, OS.WEBOS, CPU.APPLE_A9,123,true);
-    System.out.println(smartTV1.toString());
+//    SmartTV smartTV1 = new SmartTV(Brand.SAMSUNG, "SADas", Color.BLACK, Matrix.IPS, 13, OS.WEBOS, CPU.APPLE_A9,123,true);
+//    smartTV1.installOS();
+//    System.out.println(smartTV1.getBrand().getCountryOfBrand());
+
+//    Smartphone smartphone = new Smartphone(Brand.APPLE,"iPhone 12", Color.BLUE,1231231,15 );
 
 
 

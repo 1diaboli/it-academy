@@ -4,7 +4,7 @@ public interface Smart {
 
   void installApp();
 
-  default void getOS() {
-    System.out.println("You have an operation system");
+  default void reinstallOS() {
+    System.out.println("Insert BOOT Disk to install");
   }
 }

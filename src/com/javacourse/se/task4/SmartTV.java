@@ -12,14 +12,14 @@ public class SmartTV implements Smart {
   private OS os;
   private CPU cpu;
   private int sizeOfRAM;
+  private int sizeOfMemory;
   private boolean wiFi;
-
 
   public SmartTV() {
   }
 
   public SmartTV(Brand brand, String model, Color color, Matrix matrix, int sizeOfDisplay,
-      OS os, CPU cpu, int sizeOfRAM, boolean wiFi) {
+      OS os, CPU cpu, int sizeOfRAM, int sizeOfMemory, boolean wiFi) {
     this.brand = brand;
     this.model = model;
     this.color = color;
@@ -28,11 +28,12 @@ public class SmartTV implements Smart {
     this.os = os;
     this.cpu = cpu;
     this.sizeOfRAM = sizeOfRAM;
+    this.sizeOfMemory = sizeOfMemory;
     this.wiFi = wiFi;
   }
 
   public void playVideo() {
-    System.out.println("You watch this video");
+    System.out.println("Select the video you want to watch");
   }
 
   public Brand getBrand() {
@@ -55,12 +56,20 @@ public class SmartTV implements Smart {
     return sizeOfDisplay;
   }
 
+  public OS getOs() {
+    return os;
+  }
+
   public CPU getCpu() {
     return cpu;
   }
 
   public int getSizeOfRAM() {
     return sizeOfRAM;
+  }
+
+  public int getSizeOfMemory() {
+    return sizeOfMemory;
   }
 
   public boolean isWiFi() {
@@ -70,25 +79,5 @@ public class SmartTV implements Smart {
   @Override
   public void installApp() {
     System.out.println("Select application to download on your TV");
-  }
-
-  @Override
-  public void getOS() {
-    System.out.println("Your OS is: " + getMatrix());
-  }
-
-  @Override
-  public String toString() {
-    return "SmartTV{" +
-        "brand=" + brand +
-        ", model='" + model + '\'' +
-        ", color=" + color +
-        ", matrix=" + matrix +
-        ", sizeOfDisplay=" + sizeOfDisplay +
-        ", os=" + os +
-        ", cpu=" + cpu +
-        ", sizeOfRAM=" + sizeOfRAM +
-        ", wiFi=" + wiFi +
-        '}';
   }
 }

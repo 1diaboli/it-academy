@@ -1,30 +1,34 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Phone {
 
-  private Brand brand;
-  private String model;
-  private Color color;
-  private Date releaseDate;
+  protected Brand brand;
+  protected String model;
+  protected Color color;
+  protected Date releaseDate;
 
-  public Phone() {
+  protected Phone() {
   }
 
-  public Phone(Brand brand, String model, Color color, Date releaseDate) {
+  protected Phone(Brand brand, String model, Color color, Date releaseDate) {
     this.brand = brand;
     this.model = model;
     this.color = color;
     this.releaseDate = releaseDate;
   }
 
-  public abstract void call();
+  protected abstract void call();
 
-  public void answer() {
+  protected void answer() {
     System.out.println("Hello, I`m listening to you");
   }
 
-
+  protected void dateFormater(Date date) {
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:yyyy hh:mm:ss");
+    System.out.println(simpleDateFormat.format(date));
+  }
 }

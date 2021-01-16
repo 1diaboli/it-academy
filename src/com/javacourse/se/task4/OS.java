@@ -9,15 +9,12 @@ public enum OS {
   WEBOS("Webos"),
   ANDROIDWEAR("Android Wear"),
   PEBBLEOS("Pebble OS"),
-  GARMINOS("Garmin OS");
+  GARMINOS("Garmin OS"),
+  LINUX("Linux");
 
   private String name;
 
   OS(String name) {
-    this.name = name;
-  }
-
-  public void setName(String name) {
     this.name = name;
   }
 
