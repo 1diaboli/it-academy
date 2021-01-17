@@ -30,9 +30,21 @@ public abstract class Phone {
     System.out.println("Hello, I`m listening to you");
   }
 
-  public void getDate(Calendar calendar) {
+  public Brand getBrand() {
+    return brand;
+  }
+
+  public String getModel() {
+    return model;
+  }
+
+  public Color getColor() {
+    return color;
+  }
+
+  public void getReleaseDate() {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MMMM/yyyy", Locale.getDefault());
-    System.out.println(simpleDateFormat.format(calendar));
+    System.out.println(simpleDateFormat.format(releaseDate.getTime()));
   }
 
   @Override

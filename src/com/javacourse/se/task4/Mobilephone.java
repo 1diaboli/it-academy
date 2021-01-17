@@ -7,8 +7,8 @@ import java.util.Objects;
 
 public class Mobilephone extends Phone {
 
-  private int sizeOfDisplay;
-  private int screenResolution;
+  private double sizeOfDisplay;
+  private String screenResolution;
   private boolean camera;
   private boolean colorDisplay;
 
@@ -16,7 +16,7 @@ public class Mobilephone extends Phone {
   }
 
   public Mobilephone(Brand brand, String model, Color color, Calendar releaseDate,
-      int sizeOfDisplay, int screenResolution, boolean camera, boolean colorDisplay) {
+      double sizeOfDisplay, String screenResolution, boolean camera, boolean colorDisplay) {
     super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;
     this.screenResolution = screenResolution;
@@ -32,11 +32,11 @@ public class Mobilephone extends Phone {
     System.out.println("Choose a picture and then send a message");
   }
 
-  public int getSizeOfDisplay() {
+  public double getSizeOfDisplay() {
     return sizeOfDisplay;
   }
 
-  public int getScreenResolution() {
+  public String getScreenResolution() {
     return screenResolution;
   }
 

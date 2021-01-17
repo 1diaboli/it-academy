@@ -7,10 +7,11 @@ import java.util.Objects;
 
 public class Smartphone extends Phone implements Smart {
 
-  private int sizeOfDisplay;
+  private double sizeOfDisplay;
   private Matrix matrix;
-  private int screenResolution;
+  private String screenResolution;
   private CPU cpu;
+  private OS os;
   private int sizeOfRAM;
   private int sizeOfMemory;
   private int cameraResolution;
@@ -19,14 +20,15 @@ public class Smartphone extends Phone implements Smart {
   public Smartphone() {
   }
 
-  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate, int sizeOfDisplay,
-      Matrix matrix, int screenResolution, CPU cpu, int sizeOfRAM, int sizeOfMemory,
-      int cameraResolution, int sizeOfBattery) {
+  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate,
+      double sizeOfDisplay, Matrix matrix, String screenResolution, CPU cpu,
+      OS os, int sizeOfRAM, int sizeOfMemory, int cameraResolution, int sizeOfBattery) {
     super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;
     this.matrix = matrix;
     this.screenResolution = screenResolution;
     this.cpu = cpu;
+    this.os = os;
     this.sizeOfRAM = sizeOfRAM;
     this.sizeOfMemory = sizeOfMemory;
     this.cameraResolution = cameraResolution;
@@ -41,7 +43,7 @@ public class Smartphone extends Phone implements Smart {
     System.out.println("Press on this button to make a photo");
   }
 
-  public int getSizeOfDisplay() {
+  public double getSizeOfDisplay() {
     return sizeOfDisplay;
   }
 
@@ -49,12 +51,16 @@ public class Smartphone extends Phone implements Smart {
     return matrix;
   }
 
-  public int getScreenResolution() {
+  public String getScreenResolution() {
     return screenResolution;
   }
 
   public CPU getCpu() {
     return cpu;
+  }
+
+  public OS getOs() {
+    return os;
   }
 
   public int getSizeOfRAM() {
@@ -100,18 +106,19 @@ public class Smartphone extends Phone implements Smart {
       return false;
     }
     Smartphone that = (Smartphone) o;
-    return sizeOfDisplay == that.sizeOfDisplay && screenResolution == that.screenResolution
+    return Double.compare(that.sizeOfDisplay, sizeOfDisplay) == 0
         && sizeOfRAM == that.sizeOfRAM && sizeOfMemory == that.sizeOfMemory
         && cameraResolution == that.cameraResolution && sizeOfBattery == that.sizeOfBattery
-        && matrix == that.matrix && cpu == that.cpu;
+        && matrix == that.matrix && screenResolution.equals(that.screenResolution)
+        && cpu == that.cpu
+        && os == that.os;
   }
 
   @Override
   public int hashCode() {
     return Objects
-        .hash(super.hashCode(), sizeOfDisplay, matrix, screenResolution, cpu, sizeOfRAM,
-            sizeOfMemory,
-            cameraResolution, sizeOfBattery);
+        .hash(super.hashCode(), sizeOfDisplay, matrix, screenResolution, cpu, os, sizeOfRAM,
+            sizeOfMemory, cameraResolution, sizeOfBattery);
   }
 
   @Override
@@ -125,6 +132,7 @@ public class Smartphone extends Phone implements Smart {
     stringBuilder.append(", matrix=").append(matrix);
     stringBuilder.append(", screenResolution=").append(screenResolution);
     stringBuilder.append(", cpu=").append(cpu);
+    stringBuilder.append(", os=").append(os);
     stringBuilder.append(", sizeOfRAM=").append(sizeOfRAM);
     stringBuilder.append(", sizeOfMemory=").append(sizeOfMemory);
     stringBuilder.append(", cameraResolution=").append(cameraResolution);
