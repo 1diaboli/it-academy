@@ -2,7 +2,8 @@ package com.javacourse.se.task4;
 
 import java.awt.Color;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 public abstract class Phone {
@@ -11,12 +12,12 @@ public abstract class Phone {
   protected Brand brand;
   protected String model;
   protected Color color;
-  protected Date releaseDate;
+  protected Calendar releaseDate;
 
   protected Phone() {
   }
 
-  protected Phone(Brand brand, String model, Color color, Date releaseDate) {
+  protected Phone(Brand brand, String model, Color color, Calendar releaseDate) {
     this.brand = brand;
     this.model = model;
     this.color = color;
@@ -29,9 +30,9 @@ public abstract class Phone {
     System.out.println("Hello, I`m listening to you");
   }
 
-  protected void dateFormater(Date date) {
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:yyyy hh:mm:ss");
-    System.out.println(simpleDateFormat.format(date));
+  public void getDate(Calendar calendar) {
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MMMM/yyyy", Locale.getDefault());
+    System.out.println(simpleDateFormat.format(calendar));
   }
 
   @Override

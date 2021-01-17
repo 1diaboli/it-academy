@@ -1,6 +1,7 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ public class Mobilephone extends Phone {
   public Mobilephone() {
   }
 
-  public Mobilephone(Brand brand, String model, Color color, Date releaseDate,
+  public Mobilephone(Brand brand, String model, Color color, Calendar releaseDate,
       int sizeOfDisplay, int screenResolution, boolean camera, boolean colorDisplay) {
     super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;

@@ -1,8 +1,13 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Main {
+
+
+  public  Date date = new Date();
 
   public static void main(String[] args) {
 
@@ -39,11 +44,6 @@ public class Main {
 //    SmartTV smartTV1 = new SmartTV(Brand.SAMSUNG, "SADas", Color.BLACK, Matrix.IPS, 13, OS.WEBOS, CPU.APPLE_A9,123,true);
 //    smartTV1.installOS();
 //    System.out.println(smartTV1.getBrand().getCountryOfBrand());
-
-    Smartphone smartphone = new Smartphone();
-    System.out.println(smartphone.toString());
-    Mobilephone mobilephone = new Mobilephone();
-    System.out.println(mobilephone.toString());
 
 
 

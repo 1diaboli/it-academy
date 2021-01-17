@@ -1,6 +1,7 @@
 package com.javacourse.se.task4;
 
 import java.awt.Color;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class Smartphone extends Phone implements Smart {
   public Smartphone() {
   }
 
-  public Smartphone(Brand brand, String model, Color color, Date releaseDate, int sizeOfDisplay,
+  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate, int sizeOfDisplay,
       Matrix matrix, int screenResolution, CPU cpu, int sizeOfRAM, int sizeOfMemory,
       int cameraResolution, int sizeOfBattery) {
     super(brand, model, color, releaseDate);
