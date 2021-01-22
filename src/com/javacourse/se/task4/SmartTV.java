@@ -1,9 +1,5 @@
 package com.javacourse.se.task4;
 
-import com.javacourse.se.task4.enums.Brand;
-import com.javacourse.se.task4.enums.CPU;
-import com.javacourse.se.task4.enums.Matrix;
-import com.javacourse.se.task4.enums.OS;
 import java.awt.Color;
 import java.util.Objects;
 
@@ -18,13 +14,13 @@ public class SmartTV implements Smart {
   private CPU cpu;
   private int sizeOfRAM;
   private int sizeOfMemory;
-  private boolean wiFi;
+  private boolean hasWIFI;
 
   public SmartTV() {
   }
 
   public SmartTV(Brand brand, String model, Color color, Matrix matrix, int sizeOfDisplay,
-      OS os, CPU cpu, int sizeOfRAM, int sizeOfMemory, boolean wiFi) {
+      OS os, CPU cpu, int sizeOfRAM, int sizeOfMemory, boolean hasWIFI) {
     this.brand = brand;
     this.model = model;
     this.color = color;
@@ -34,7 +30,7 @@ public class SmartTV implements Smart {
     this.cpu = cpu;
     this.sizeOfRAM = sizeOfRAM;
     this.sizeOfMemory = sizeOfMemory;
-    this.wiFi = wiFi;
+    this.hasWIFI = hasWIFI;
   }
 
   public void playVideo() {
@@ -77,8 +73,8 @@ public class SmartTV implements Smart {
     return sizeOfMemory;
   }
 
-  public boolean isWiFi() {
-    return wiFi;
+  public boolean isHasWIFI() {
+    return hasWIFI;
   }
 
   @Override
@@ -96,30 +92,33 @@ public class SmartTV implements Smart {
     }
     SmartTV smartTV = (SmartTV) o;
     return sizeOfDisplay == smartTV.sizeOfDisplay && sizeOfRAM == smartTV.sizeOfRAM
-        && sizeOfMemory == smartTV.sizeOfMemory && wiFi == smartTV.wiFi && brand == smartTV.brand
-        && model.equals(smartTV.model) && color.equals(smartTV.color) && matrix == smartTV.matrix
+        && sizeOfMemory == smartTV.sizeOfMemory && hasWIFI == smartTV.hasWIFI
+        && brand == smartTV.brand && Objects.equals(model, smartTV.model)
+        && Objects.equals(color, smartTV.color) && matrix == smartTV.matrix
         && os == smartTV.os && cpu == smartTV.cpu;
   }
 
   @Override
   public int hashCode() {
     return Objects
-        .hash(brand, model, color, matrix, sizeOfDisplay, os, cpu, sizeOfRAM, sizeOfMemory, wiFi);
+        .hash(brand, model, color, matrix, sizeOfDisplay, os, cpu, sizeOfRAM, sizeOfMemory,
+            hasWIFI);
   }
 
   @Override
   public String toString() {
-    return "SmartTV{" +
-        "brand=" + brand +
-        ", model='" + model + '\'' +
-        ", color=" + color +
-        ", matrix=" + matrix +
-        ", sizeOfDisplay=" + sizeOfDisplay +
-        ", os=" + os +
-        ", cpu=" + cpu +
-        ", sizeOfRAM=" + sizeOfRAM +
-        ", sizeOfMemory=" + sizeOfMemory +
-        ", wiFi=" + wiFi +
-        '}';
+    final StringBuffer sb = new StringBuffer("SmartTV{");
+    sb.append("brand=").append(brand);
+    sb.append(", model='").append(model).append('\'');
+    sb.append(", color=").append(color);
+    sb.append(", matrix=").append(matrix);
+    sb.append(", sizeOfDisplay=").append(sizeOfDisplay);
+    sb.append(", os=").append(os);
+    sb.append(", cpu=").append(cpu);
+    sb.append(", sizeOfRAM=").append(sizeOfRAM);
+    sb.append(", sizeOfMemory=").append(sizeOfMemory);
+    sb.append(", hasWIFI=").append(hasWIFI);
+    sb.append('}');
+    return sb.toString();
   }
 }

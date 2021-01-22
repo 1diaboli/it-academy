@@ -1,12 +1,7 @@
 package com.javacourse.se.task4;
 
-import com.javacourse.se.task4.enums.Brand;
-import com.javacourse.se.task4.enums.CPU;
-import com.javacourse.se.task4.enums.Matrix;
-import com.javacourse.se.task4.enums.OS;
 import java.awt.Color;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Main {
 

@@ -2,7 +2,6 @@ package com.javacourse.se.task4;
 
 import java.awt.Color;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 
 public class Smartphone extends Phone implements Smart {
@@ -109,9 +108,8 @@ public class Smartphone extends Phone implements Smart {
     return Double.compare(that.sizeOfDisplay, sizeOfDisplay) == 0
         && sizeOfRAM == that.sizeOfRAM && sizeOfMemory == that.sizeOfMemory
         && cameraResolution == that.cameraResolution && sizeOfBattery == that.sizeOfBattery
-        && matrix == that.matrix && screenResolution.equals(that.screenResolution)
-        && cpu == that.cpu
-        && os == that.os;
+        && matrix == that.matrix && Objects.equals(screenResolution, that.screenResolution)
+        && cpu == that.cpu && os == that.os;
   }
 
   @Override
@@ -123,21 +121,21 @@ public class Smartphone extends Phone implements Smart {
 
   @Override
   public String toString() {
-    stringBuilder.append("Smartphone {");
-    stringBuilder.append("brand=").append(brand);
-    stringBuilder.append(", model='").append(model).append('\'');
-    stringBuilder.append(", color=").append(color);
-    stringBuilder.append(", releaseDate=").append(releaseDate);
-    stringBuilder.append(", sizeOfDisplay=").append(sizeOfDisplay);
-    stringBuilder.append(", matrix=").append(matrix);
-    stringBuilder.append(", screenResolution=").append(screenResolution);
-    stringBuilder.append(", cpu=").append(cpu);
-    stringBuilder.append(", os=").append(os);
-    stringBuilder.append(", sizeOfRAM=").append(sizeOfRAM);
-    stringBuilder.append(", sizeOfMemory=").append(sizeOfMemory);
-    stringBuilder.append(", cameraResolution=").append(cameraResolution);
-    stringBuilder.append(", sizeOfBattery=").append(sizeOfBattery);
-    stringBuilder.append('}');
-    return stringBuilder.toString();
+    final StringBuffer sb = new StringBuffer("Smartphone{");
+    sb.append("brand=").append(brand);
+    sb.append(", model='").append(model).append('\'');
+    sb.append(", color=").append(color);
+    sb.append(", releaseDate=").append(releaseDate);
+    sb.append(", sizeOfDisplay=").append(sizeOfDisplay);
+    sb.append(", matrix=").append(matrix);
+    sb.append(", screenResolution='").append(screenResolution).append('\'');
+    sb.append(", cpu=").append(cpu);
+    sb.append(", os=").append(os);
+    sb.append(", sizeOfRAM=").append(sizeOfRAM);
+    sb.append(", sizeOfMemory=").append(sizeOfMemory);
+    sb.append(", cameraResolution=").append(cameraResolution);
+    sb.append(", sizeOfBattery=").append(sizeOfBattery);
+    sb.append('}');
+    return sb.toString();
   }
 }

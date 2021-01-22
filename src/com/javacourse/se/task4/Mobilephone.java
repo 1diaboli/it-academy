@@ -2,26 +2,25 @@ package com.javacourse.se.task4;
 
 import java.awt.Color;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 
 public class Mobilephone extends Phone {
 
   private double sizeOfDisplay;
   private String screenResolution;
-  private boolean camera;
-  private boolean colorDisplay;
+  private boolean hasCamera;
+  private boolean hasColorDisplay;
 
   public Mobilephone() {
   }
 
   public Mobilephone(Brand brand, String model, Color color, Calendar releaseDate,
-      double sizeOfDisplay, String screenResolution, boolean camera, boolean colorDisplay) {
+      double sizeOfDisplay, String screenResolution, boolean hasCamera, boolean hasColorDisplay) {
     super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;
     this.screenResolution = screenResolution;
-    this.camera = camera;
-    this.colorDisplay = colorDisplay;
+    this.hasCamera = hasCamera;
+    this.hasColorDisplay = hasColorDisplay;
   }
 
   public void sendSMS() {
@@ -40,12 +39,12 @@ public class Mobilephone extends Phone {
     return screenResolution;
   }
 
-  public boolean isCamera() {
-    return camera;
+  public boolean isHasCamera() {
+    return hasCamera;
   }
 
-  public boolean isColorDisplay() {
-    return colorDisplay;
+  public boolean isHasColorDisplay() {
+    return hasColorDisplay;
   }
 
   @Override
@@ -70,27 +69,29 @@ public class Mobilephone extends Phone {
       return false;
     }
     Mobilephone that = (Mobilephone) o;
-    return sizeOfDisplay == that.sizeOfDisplay && screenResolution == that.screenResolution
-        && camera == that.camera && colorDisplay == that.colorDisplay;
+    return Double.compare(that.sizeOfDisplay, sizeOfDisplay) == 0
+        && hasCamera == that.hasCamera && hasColorDisplay == that.hasColorDisplay && Objects
+        .equals(screenResolution, that.screenResolution);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), sizeOfDisplay, screenResolution, camera, colorDisplay);
+    return Objects
+        .hash(super.hashCode(), sizeOfDisplay, screenResolution, hasCamera, hasColorDisplay);
   }
 
   @Override
   public String toString() {
-    stringBuilder.append("Mobilephone {");
-    stringBuilder.append("brand=").append(brand);
-    stringBuilder.append(", model='").append(model).append('\'');
-    stringBuilder.append(", color=").append(color);
-    stringBuilder.append(", releaseDate=").append(releaseDate);
-    stringBuilder.append(", sizeOfDisplay=").append(sizeOfDisplay);
-    stringBuilder.append(", screenResolution=").append(screenResolution);
-    stringBuilder.append(", camera=").append(camera);
-    stringBuilder.append(", colorDisplay=").append(colorDisplay);
-    stringBuilder.append('}');
-    return stringBuilder.toString();
+    final StringBuffer sb = new StringBuffer("Mobilephone{");
+    sb.append("sizeOfDisplay=").append(sizeOfDisplay);
+    sb.append(", screenResolution='").append(screenResolution).append('\'');
+    sb.append(", hasCamera=").append(hasCamera);
+    sb.append(", hasColorDisplay=").append(hasColorDisplay);
+    sb.append(", brand=").append(brand);
+    sb.append(", model='").append(model).append('\'');
+    sb.append(", color=").append(color);
+    sb.append(", releaseDate=").append(releaseDate);
+    sb.append('}');
+    return sb.toString();
   }
 }

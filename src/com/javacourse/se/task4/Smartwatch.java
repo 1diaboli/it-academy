@@ -110,9 +110,10 @@ public class Smartwatch implements Smart {
     Smartwatch that = (Smartwatch) o;
     return sizeOfDisplay == that.sizeOfDisplay && sizeOfRAM == that.sizeOfRAM
         && sizeOfMemory == that.sizeOfMemory && sizeOfBattery == that.sizeOfBattery
-        && brand == that.brand && model.equals(that.model) && bodyColor.equals(that.bodyColor)
-        && strapColor.equals(that.strapColor) && bodyMaterial.equals(that.bodyMaterial)
-        && os == that.os && matrix == that.matrix && cpu == that.cpu;
+        && brand == that.brand && Objects.equals(model, that.model) && Objects
+        .equals(bodyColor, that.bodyColor) && Objects.equals(strapColor, that.strapColor)
+        && Objects.equals(bodyMaterial, that.bodyMaterial) && os == that.os
+        && matrix == that.matrix && cpu == that.cpu;
   }
 
   @Override
@@ -124,19 +125,20 @@ public class Smartwatch implements Smart {
 
   @Override
   public String toString() {
-    return "Smartwatch{" +
-        "brand=" + brand +
-        ", model='" + model + '\'' +
-        ", bodyColor=" + bodyColor +
-        ", strapColor=" + strapColor +
-        ", bodyMaterial='" + bodyMaterial + '\'' +
-        ", os=" + os +
-        ", matrix=" + matrix +
-        ", cpu=" + cpu +
-        ", sizeOfDisplay=" + sizeOfDisplay +
-        ", sizeOfRAM=" + sizeOfRAM +
-        ", sizeOfMemory=" + sizeOfMemory +
-        ", sizeOfBattery=" + sizeOfBattery +
-        '}';
+    final StringBuffer sb = new StringBuffer("Smartwatch{");
+    sb.append("brand=").append(brand);
+    sb.append(", model='").append(model).append('\'');
+    sb.append(", bodyColor=").append(bodyColor);
+    sb.append(", strapColor=").append(strapColor);
+    sb.append(", bodyMaterial='").append(bodyMaterial).append('\'');
+    sb.append(", os=").append(os);
+    sb.append(", matrix=").append(matrix);
+    sb.append(", cpu=").append(cpu);
+    sb.append(", sizeOfDisplay=").append(sizeOfDisplay);
+    sb.append(", sizeOfRAM=").append(sizeOfRAM);
+    sb.append(", sizeOfMemory=").append(sizeOfMemory);
+    sb.append(", sizeOfBattery=").append(sizeOfBattery);
+    sb.append('}');
+    return sb.toString();
   }
 }

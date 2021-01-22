@@ -1,4 +1,4 @@
-package com.javacourse.se.task4.enums;
+package com.javacourse.se.task4;
 
 public enum CPU {
 

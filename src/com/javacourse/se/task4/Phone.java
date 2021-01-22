@@ -1,6 +1,5 @@
 package com.javacourse.se.task4;
 
-import com.javacourse.se.task4.enums.Brand;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,7 +8,6 @@ import java.util.Objects;
 
 public abstract class Phone {
 
-  protected StringBuilder stringBuilder = new StringBuilder();
   protected Brand brand;
   protected String model;
   protected Color color;
@@ -57,8 +55,8 @@ public abstract class Phone {
       return false;
     }
     Phone phone = (Phone) o;
-    return brand == phone.brand && model.equals(phone.model) && color.equals(phone.color)
-        && releaseDate.equals(phone.releaseDate);
+    return brand == phone.brand && Objects.equals(model, phone.model) && Objects
+        .equals(color, phone.color) && Objects.equals(releaseDate, phone.releaseDate);
   }
 
   @Override
@@ -68,12 +66,12 @@ public abstract class Phone {
 
   @Override
   public String toString() {
-    stringBuilder.append("Phone {");
-    stringBuilder.append("brand=").append(brand);
-    stringBuilder.append(", model='").append(model).append('\'');
-    stringBuilder.append(", color=").append(color);
-    stringBuilder.append(", releaseDate=").append(releaseDate);
-    stringBuilder.append('}');
-    return stringBuilder.toString();
+    final StringBuffer sb = new StringBuffer("Phone{");
+    sb.append("brand=").append(brand);
+    sb.append(", model='").append(model).append('\'');
+    sb.append(", color=").append(color);
+    sb.append(", releaseDate=").append(releaseDate);
+    sb.append('}');
+    return sb.toString();
   }
 }
