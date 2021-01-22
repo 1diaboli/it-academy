@@ -1,5 +1,6 @@
 package com.javacourse.se.task4;
 
+import com.javacourse.se.task4.enums.Brand;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.Objects;
