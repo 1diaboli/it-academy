@@ -27,18 +27,6 @@ public enum Brand {
     this.yearOfFoundation = yearOfFoundation;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setCountryOfBrand(String countryOfBrand) {
-    this.countryOfBrand = countryOfBrand;
-  }
-
-  public void setYearOfFoundation(int yearOfFoundation) {
-    this.yearOfFoundation = yearOfFoundation;
-  }
-
   public String getName() {
     return name;
   }
