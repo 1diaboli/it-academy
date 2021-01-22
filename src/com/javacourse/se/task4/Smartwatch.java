@@ -17,13 +17,14 @@ public class Smartwatch implements Smart {
   private int sizeOfRAM;
   private int sizeOfMemory;
   private int sizeOfBattery;
+  private double price;
 
   public Smartwatch() {
   }
 
   public Smartwatch(Brand brand, String model, Color bodyColor, Color strapColor,
       String bodyMaterial, OS os, Matrix matrix, CPU cpu, int sizeOfDisplay, int sizeOfRAM,
-      int sizeOfMemory, int sizeOfBattery) {
+      int sizeOfMemory, int sizeOfBattery, double price) {
     this.brand = brand;
     this.model = model;
     this.bodyColor = bodyColor;
@@ -36,6 +37,7 @@ public class Smartwatch implements Smart {
     this.sizeOfRAM = sizeOfRAM;
     this.sizeOfMemory = sizeOfMemory;
     this.sizeOfBattery = sizeOfBattery;
+    this.price = price;
   }
 
   public void checkPulse() {
@@ -94,6 +96,10 @@ public class Smartwatch implements Smart {
     return sizeOfBattery;
   }
 
+  public double getPrice() {
+    return price;
+  }
+
   @Override
   public void installApp() {
     System.out.println("Select the application you want to add to your watch");
@@ -110,7 +116,8 @@ public class Smartwatch implements Smart {
     Smartwatch that = (Smartwatch) o;
     return sizeOfDisplay == that.sizeOfDisplay && sizeOfRAM == that.sizeOfRAM
         && sizeOfMemory == that.sizeOfMemory && sizeOfBattery == that.sizeOfBattery
-        && brand == that.brand && Objects.equals(model, that.model) && Objects
+        && Double.compare(that.price, price) == 0 && brand == that.brand
+        && Objects.equals(model, that.model) && Objects
         .equals(bodyColor, that.bodyColor) && Objects.equals(strapColor, that.strapColor)
         && Objects.equals(bodyMaterial, that.bodyMaterial) && os == that.os
         && matrix == that.matrix && cpu == that.cpu;
@@ -120,7 +127,7 @@ public class Smartwatch implements Smart {
   public int hashCode() {
     return Objects
         .hash(brand, model, bodyColor, strapColor, bodyMaterial, os, matrix, cpu, sizeOfDisplay,
-            sizeOfRAM, sizeOfMemory, sizeOfBattery);
+            sizeOfRAM, sizeOfMemory, sizeOfBattery, price);
   }
 
   @Override
@@ -138,6 +145,7 @@ public class Smartwatch implements Smart {
     sb.append(", sizeOfRAM=").append(sizeOfRAM);
     sb.append(", sizeOfMemory=").append(sizeOfMemory);
     sb.append(", sizeOfBattery=").append(sizeOfBattery);
+    sb.append(", price=").append(price);
     sb.append('}');
     return sb.toString();
   }

@@ -15,12 +15,13 @@ public class SmartTV implements Smart {
   private int sizeOfRAM;
   private int sizeOfMemory;
   private boolean hasWIFI;
+  private double price;
 
   public SmartTV() {
   }
 
   public SmartTV(Brand brand, String model, Color color, Matrix matrix, int sizeOfDisplay,
-      OS os, CPU cpu, int sizeOfRAM, int sizeOfMemory, boolean hasWIFI) {
+      OS os, CPU cpu, int sizeOfRAM, int sizeOfMemory, boolean hasWIFI, double price) {
     this.brand = brand;
     this.model = model;
     this.color = color;
@@ -31,6 +32,7 @@ public class SmartTV implements Smart {
     this.sizeOfRAM = sizeOfRAM;
     this.sizeOfMemory = sizeOfMemory;
     this.hasWIFI = hasWIFI;
+    this.price = price;
   }
 
   public void playVideo() {
@@ -77,9 +79,8 @@ public class SmartTV implements Smart {
     return hasWIFI;
   }
 
-  @Override
-  public void installApp() {
-    System.out.println("Select application to download on your TV");
+  public double getPrice() {
+    return price;
   }
 
   @Override
@@ -93,16 +94,17 @@ public class SmartTV implements Smart {
     SmartTV smartTV = (SmartTV) o;
     return sizeOfDisplay == smartTV.sizeOfDisplay && sizeOfRAM == smartTV.sizeOfRAM
         && sizeOfMemory == smartTV.sizeOfMemory && hasWIFI == smartTV.hasWIFI
-        && brand == smartTV.brand && Objects.equals(model, smartTV.model)
-        && Objects.equals(color, smartTV.color) && matrix == smartTV.matrix
-        && os == smartTV.os && cpu == smartTV.cpu;
+        && Double.compare(smartTV.price, price) == 0 && brand == smartTV.brand
+        && Objects.equals(model, smartTV.model) && Objects
+        .equals(color, smartTV.color) && matrix == smartTV.matrix && os == smartTV.os
+        && cpu == smartTV.cpu;
   }
 
   @Override
   public int hashCode() {
     return Objects
-        .hash(brand, model, color, matrix, sizeOfDisplay, os, cpu, sizeOfRAM, sizeOfMemory,
-            hasWIFI);
+        .hash(brand, model, color, matrix, sizeOfDisplay, os, cpu, sizeOfRAM, sizeOfMemory, hasWIFI,
+            price);
   }
 
   @Override
@@ -118,6 +120,7 @@ public class SmartTV implements Smart {
     sb.append(", sizeOfRAM=").append(sizeOfRAM);
     sb.append(", sizeOfMemory=").append(sizeOfMemory);
     sb.append(", hasWIFI=").append(hasWIFI);
+    sb.append(", price=").append(price);
     sb.append('}');
     return sb.toString();
   }

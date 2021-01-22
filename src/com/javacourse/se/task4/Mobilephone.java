@@ -14,9 +14,9 @@ public class Mobilephone extends Phone {
   public Mobilephone() {
   }
 
-  public Mobilephone(Brand brand, String model, Color color, Calendar releaseDate,
+  public Mobilephone(Brand brand, String model, Color color, Calendar releaseDate, double price,
       double sizeOfDisplay, String screenResolution, boolean hasCamera, boolean hasColorDisplay) {
-    super(brand, model, color, releaseDate);
+    super(brand, model, color, releaseDate, price);
     this.sizeOfDisplay = sizeOfDisplay;
     this.screenResolution = screenResolution;
     this.hasCamera = hasCamera;
@@ -91,6 +91,7 @@ public class Mobilephone extends Phone {
     sb.append(", model='").append(model).append('\'');
     sb.append(", color=").append(color);
     sb.append(", releaseDate=").append(releaseDate);
+    sb.append(", price=").append(price);
     sb.append('}');
     return sb.toString();
   }

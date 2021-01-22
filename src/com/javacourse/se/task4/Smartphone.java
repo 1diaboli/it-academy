@@ -19,10 +19,10 @@ public class Smartphone extends Phone implements Smart {
   public Smartphone() {
   }
 
-  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate,
+  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate, double price,
       double sizeOfDisplay, Matrix matrix, String screenResolution, CPU cpu,
       OS os, int sizeOfRAM, int sizeOfMemory, int cameraResolution, int sizeOfBattery) {
-    super(brand, model, color, releaseDate);
+    super(brand, model, color, releaseDate, price);
     this.sizeOfDisplay = sizeOfDisplay;
     this.matrix = matrix;
     this.screenResolution = screenResolution;
@@ -126,6 +126,7 @@ public class Smartphone extends Phone implements Smart {
     sb.append(", model='").append(model).append('\'');
     sb.append(", color=").append(color);
     sb.append(", releaseDate=").append(releaseDate);
+    sb.append(", price=").append(price);
     sb.append(", sizeOfDisplay=").append(sizeOfDisplay);
     sb.append(", matrix=").append(matrix);
     sb.append(", screenResolution='").append(screenResolution).append('\'');

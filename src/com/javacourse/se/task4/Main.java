@@ -14,19 +14,20 @@ public class Main {
     Calendar calendarMobilephone = Calendar.getInstance();
     calendarMobilephone.set(2005, Calendar.JANUARY, 5);
 
-    Phone smartphone1 = new Smartphone(Brand.HUAWEI, "P20", Color.CYAN, calendarSmartphone1, 6,
+    Phone smartphone1 = new Smartphone(Brand.HUAWEI, "P20", Color.CYAN, calendarSmartphone1, 500, 6,
         Matrix.IPS, "1200x1080", CPU.EXYNOS_990, OS.ANDROID, 4000, 256, 50, 5000);
     Smart smartphone2 = new Smartphone();
     Smartphone smartphone3 = new Smartphone(Brand.APPLE, "IPhone 12", Color.BLACK,
-        calendarSmartphone2, 5.5, Matrix.OLED, "2500x1900", CPU.APPLE_A12, OS.IOS, 2048, 128, 15,
+        calendarSmartphone2, 1200, 5.5, Matrix.OLED, "2500x1900", CPU.APPLE_A12, OS.IOS, 2048, 128,
+        15,
         3000);
     Phone mobilephone1 = new Mobilephone();
     Mobilephone mobilephone2 = new Mobilephone(Brand.NOKIA, "3310", Color.BLUE, calendarMobilephone,
-        2.2, "500x400", false, false);
+        200, 2.2, "500x400", false, false);
     Smart smartTV1 = new SmartTV();
     SmartTV smartTV2 = new SmartTV();
     Smart smartwatch1 = new Smartwatch(Brand.APPLE, "Watch 5", Color.white, Color.BLACK, "rubber",
-        OS.WATCHOS, Matrix.RETINA, CPU.APPLE_A13, 4, 1024, 32, 2000);
+        OS.WATCHOS, Matrix.RETINA, CPU.APPLE_A13, 4, 1024, 32, 2000, 500);
     Smartwatch smartwatch2 = new Smartwatch();
 
     smartphone1.call();

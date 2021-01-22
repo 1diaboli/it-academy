@@ -12,15 +12,17 @@ public abstract class Phone {
   protected String model;
   protected Color color;
   protected Calendar releaseDate;
+  protected double price;
 
   protected Phone() {
   }
 
-  protected Phone(Brand brand, String model, Color color, Calendar releaseDate) {
+  public Phone(Brand brand, String model, Color color, Calendar releaseDate, double price) {
     this.brand = brand;
     this.model = model;
     this.color = color;
     this.releaseDate = releaseDate;
+    this.price = price;
   }
 
   protected abstract void call();
@@ -46,6 +48,10 @@ public abstract class Phone {
     System.out.println(simpleDateFormat.format(releaseDate.getTime()));
   }
 
+  public double getPrice() {
+    return price;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -55,13 +61,14 @@ public abstract class Phone {
       return false;
     }
     Phone phone = (Phone) o;
-    return brand == phone.brand && Objects.equals(model, phone.model) && Objects
+    return Double.compare(phone.price, price) == 0 && brand == phone.brand
+        && Objects.equals(model, phone.model) && Objects
         .equals(color, phone.color) && Objects.equals(releaseDate, phone.releaseDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, model, color, releaseDate);
+    return Objects.hash(brand, model, color, releaseDate, price);
   }
 
   @Override
@@ -71,6 +78,7 @@ public abstract class Phone {
     sb.append(", model='").append(model).append('\'');
     sb.append(", color=").append(color);
     sb.append(", releaseDate=").append(releaseDate);
+    sb.append(", price=").append(price);
     sb.append('}');
     return sb.toString();
   }
