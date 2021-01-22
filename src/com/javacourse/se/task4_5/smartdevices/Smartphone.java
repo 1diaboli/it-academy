@@ -1,10 +1,11 @@
-package com.javacourse.se.task4;
+package com.javacourse.se.task4.smartdevices;
 
+import com.javacourse.se.task4.phones.Phone;
 import com.javacourse.se.task4.enums.Brand;
 import com.javacourse.se.task4.enums.CPU;
 import com.javacourse.se.task4.enums.Matrix;
 import com.javacourse.se.task4.enums.OS;
-import com.javacourse.se.task4.smart_interface.Smart;
+import com.javacourse.se.task4.smartinterface.Smart;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.Objects;
@@ -20,14 +21,16 @@ public class Smartphone extends Phone implements Smart {
   private int sizeOfMemory;
   private int cameraResolution;
   private int sizeOfBattery;
+  private double price;
 
   public Smartphone() {
   }
 
-  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate, double price,
+  public Smartphone(Brand brand, String model, Color color, Calendar releaseDate,
       double sizeOfDisplay, Matrix matrix, String screenResolution, CPU cpu,
-      OS os, int sizeOfRAM, int sizeOfMemory, int cameraResolution, int sizeOfBattery) {
-    super(brand, model, color, releaseDate, price);
+      OS os, int sizeOfRAM, int sizeOfMemory, int cameraResolution, int sizeOfBattery,
+      double price) {
+    super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;
     this.matrix = matrix;
     this.screenResolution = screenResolution;
@@ -37,6 +40,7 @@ public class Smartphone extends Phone implements Smart {
     this.sizeOfMemory = sizeOfMemory;
     this.cameraResolution = cameraResolution;
     this.sizeOfBattery = sizeOfBattery;
+    this.price = price;
   }
 
   public void openApp() {
@@ -93,6 +97,12 @@ public class Smartphone extends Phone implements Smart {
     System.out.println("Hello, you call me on smartphone");
   }
 
+
+  @Override
+  public double getPrice() {
+    return this.price;
+  }
+
   @Override
   public void installApp() {
     System.out.println("Select application to install on your Smartphone");
@@ -113,15 +123,16 @@ public class Smartphone extends Phone implements Smart {
     return Double.compare(that.sizeOfDisplay, sizeOfDisplay) == 0
         && sizeOfRAM == that.sizeOfRAM && sizeOfMemory == that.sizeOfMemory
         && cameraResolution == that.cameraResolution && sizeOfBattery == that.sizeOfBattery
-        && matrix == that.matrix && Objects.equals(screenResolution, that.screenResolution)
-        && cpu == that.cpu && os == that.os;
+        && Double.compare(that.price, price) == 0 && matrix == that.matrix
+        && Objects.equals(screenResolution, that.screenResolution) && cpu == that.cpu
+        && os == that.os;
   }
 
   @Override
   public int hashCode() {
     return Objects
         .hash(super.hashCode(), sizeOfDisplay, matrix, screenResolution, cpu, os, sizeOfRAM,
-            sizeOfMemory, cameraResolution, sizeOfBattery);
+            sizeOfMemory, cameraResolution, sizeOfBattery, price);
   }
 
   @Override
@@ -131,7 +142,6 @@ public class Smartphone extends Phone implements Smart {
     sb.append(", model='").append(model).append('\'');
     sb.append(", color=").append(color);
     sb.append(", releaseDate=").append(releaseDate);
-    sb.append(", price=").append(price);
     sb.append(", sizeOfDisplay=").append(sizeOfDisplay);
     sb.append(", matrix=").append(matrix);
     sb.append(", screenResolution='").append(screenResolution).append('\'');
@@ -141,6 +151,7 @@ public class Smartphone extends Phone implements Smart {
     sb.append(", sizeOfMemory=").append(sizeOfMemory);
     sb.append(", cameraResolution=").append(cameraResolution);
     sb.append(", sizeOfBattery=").append(sizeOfBattery);
+    sb.append(", price=").append(price);
     sb.append('}');
     return sb.toString();
   }

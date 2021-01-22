@@ -1,6 +1,8 @@
-package com.javacourse.se.task4.smart_interface;
+package com.javacourse.se.task4.smartinterface;
 
 public interface Smart {
+
+  double getPrice();
 
   void installApp();
 

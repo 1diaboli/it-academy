@@ -1,10 +1,10 @@
-package com.javacourse.se.task4;
+package com.javacourse.se.task4.smartdevices;
 
 import com.javacourse.se.task4.enums.Brand;
 import com.javacourse.se.task4.enums.CPU;
 import com.javacourse.se.task4.enums.Matrix;
 import com.javacourse.se.task4.enums.OS;
-import com.javacourse.se.task4.smart_interface.Smart;
+import com.javacourse.se.task4.smartinterface.Smart;
 import java.awt.Color;
 import java.util.Objects;
 
@@ -101,8 +101,9 @@ public class Smartwatch implements Smart {
     return sizeOfBattery;
   }
 
+  @Override
   public double getPrice() {
-    return price;
+    return this.price;
   }
 
   @Override
