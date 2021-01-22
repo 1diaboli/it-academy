@@ -1,7 +1,7 @@
 package com.javacourse.se.task4;
 
-import java.awt.Color;
-import java.util.Date;
+import com.javacourse.se.task4.enums.CPU;
+import com.javacourse.se.task4.enums.Matrix;
 
 public class Smartphone extends Phone implements Smart {
 
