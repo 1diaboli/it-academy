@@ -84,6 +84,11 @@ public class SmartTV implements Smart {
   }
 
   @Override
+  public void installApp() {
+    System.out.println("Select application to download on your TV");
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -124,4 +129,5 @@ public class SmartTV implements Smart {
     sb.append('}');
     return sb.toString();
   }
+
 }
