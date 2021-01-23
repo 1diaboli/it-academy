@@ -1,10 +1,10 @@
-package com.javacourse.se.task4.smartdevices;
+package com.javacourse.se.task4_5.smartdevices;
 
-import com.javacourse.se.task4.enums.Brand;
-import com.javacourse.se.task4.enums.CPU;
-import com.javacourse.se.task4.enums.Matrix;
-import com.javacourse.se.task4.enums.OS;
-import com.javacourse.se.task4.smartinterface.Smart;
+import com.javacourse.se.task4_5.enums.Brand;
+import com.javacourse.se.task4_5.enums.CPU;
+import com.javacourse.se.task4_5.enums.Matrix;
+import com.javacourse.se.task4_5.enums.OS;
+import com.javacourse.se.task4_5.smartinterface.Smart;
 import java.awt.Color;
 import java.util.Objects;
 
@@ -13,8 +13,6 @@ public class Smartwatch implements Smart {
   private Brand brand;
   private String model;
   private Color bodyColor;
-  private Color strapColor;
-  private String bodyMaterial;
   private OS os;
   private Matrix matrix;
   private CPU cpu;
@@ -27,14 +25,12 @@ public class Smartwatch implements Smart {
   public Smartwatch() {
   }
 
-  public Smartwatch(Brand brand, String model, Color bodyColor, Color strapColor,
-      String bodyMaterial, OS os, Matrix matrix, CPU cpu, int sizeOfDisplay, int sizeOfRAM,
-      int sizeOfMemory, int sizeOfBattery, double price) {
+  public Smartwatch(Brand brand, String model, Color bodyColor, OS os,
+      Matrix matrix, CPU cpu, int sizeOfDisplay, int sizeOfRAM, int sizeOfMemory, int sizeOfBattery,
+      double price) {
     this.brand = brand;
     this.model = model;
     this.bodyColor = bodyColor;
-    this.strapColor = strapColor;
-    this.bodyMaterial = bodyMaterial;
     this.os = os;
     this.matrix = matrix;
     this.cpu = cpu;
@@ -65,14 +61,6 @@ public class Smartwatch implements Smart {
     return bodyColor;
   }
 
-  public Color getStrapColor() {
-    return strapColor;
-  }
-
-  public String getBodyMaterial() {
-    return bodyMaterial;
-  }
-
   public OS getOs() {
     return os;
   }
@@ -101,6 +89,108 @@ public class Smartwatch implements Smart {
     return sizeOfBattery;
   }
 
+  public class WatchBand {
+
+    private Color color;
+    private String typeOfBand;
+    private String material;
+    private double size;
+
+    public WatchBand() {
+
+    }
+
+    public WatchBand(Color color, String typeOfBand, String material, double size) {
+      this.color = color;
+      this.typeOfBand = typeOfBand;
+      this.material = material;
+      this.size = size;
+    }
+
+    public Color getColor() {
+      return color;
+    }
+
+    public String getTypeOfBand() {
+      return typeOfBand;
+    }
+
+    public String getMaterial() {
+      return material;
+    }
+
+    public double getSize() {
+      return size;
+    }
+  }
+
+  public class Sensor {
+
+    private boolean accelerometer;
+    private boolean gyroscope;
+    private boolean lightSensor;
+    private boolean barometer;
+    private boolean pedometer;
+    private boolean heartRateMonitor;
+    private boolean sensorECG;
+    private boolean sensorBloodOxygen;
+    private boolean compass;
+
+    public Sensor() {
+
+    }
+
+    public Sensor(boolean accelerometer, boolean gyroscope, boolean lightSensor, boolean barometer,
+        boolean pedometer, boolean heartRateMonitor, boolean sensorECG, boolean sensorBloodOxygen,
+        boolean compass) {
+      this.accelerometer = accelerometer;
+      this.gyroscope = gyroscope;
+      this.lightSensor = lightSensor;
+      this.barometer = barometer;
+      this.pedometer = pedometer;
+      this.heartRateMonitor = heartRateMonitor;
+      this.sensorECG = sensorECG;
+      this.sensorBloodOxygen = sensorBloodOxygen;
+      this.compass = compass;
+    }
+
+    public boolean isAccelerometer() {
+      return accelerometer;
+    }
+
+    public boolean isGyroscope() {
+      return gyroscope;
+    }
+
+    public boolean isLightSensor() {
+      return lightSensor;
+    }
+
+    public boolean isBarometer() {
+      return barometer;
+    }
+
+    public boolean isPedometer() {
+      return pedometer;
+    }
+
+    public boolean isHeartRateMonitor() {
+      return heartRateMonitor;
+    }
+
+    public boolean isSensorECG() {
+      return sensorECG;
+    }
+
+    public boolean isSensorBloodOxygen() {
+      return sensorBloodOxygen;
+    }
+
+    public boolean isCompass() {
+      return compass;
+    }
+  }
+
   @Override
   public double getPrice() {
     return this.price;
@@ -124,16 +214,15 @@ public class Smartwatch implements Smart {
         && sizeOfMemory == that.sizeOfMemory && sizeOfBattery == that.sizeOfBattery
         && Double.compare(that.price, price) == 0 && brand == that.brand
         && Objects.equals(model, that.model) && Objects
-        .equals(bodyColor, that.bodyColor) && Objects.equals(strapColor, that.strapColor)
-        && Objects.equals(bodyMaterial, that.bodyMaterial) && os == that.os
-        && matrix == that.matrix && cpu == that.cpu;
+        .equals(bodyColor, that.bodyColor) && os == that.os && matrix == that.matrix
+        && cpu == that.cpu;
   }
 
   @Override
   public int hashCode() {
     return Objects
-        .hash(brand, model, bodyColor, strapColor, bodyMaterial, os, matrix, cpu, sizeOfDisplay,
-            sizeOfRAM, sizeOfMemory, sizeOfBattery, price);
+        .hash(brand, model, bodyColor, os, matrix, cpu, sizeOfDisplay, sizeOfRAM, sizeOfMemory,
+            sizeOfBattery, price);
   }
 
   @Override
@@ -142,8 +231,6 @@ public class Smartwatch implements Smart {
     sb.append("brand=").append(brand);
     sb.append(", model='").append(model).append('\'');
     sb.append(", bodyColor=").append(bodyColor);
-    sb.append(", strapColor=").append(strapColor);
-    sb.append(", bodyMaterial='").append(bodyMaterial).append('\'');
     sb.append(", os=").append(os);
     sb.append(", matrix=").append(matrix);
     sb.append(", cpu=").append(cpu);

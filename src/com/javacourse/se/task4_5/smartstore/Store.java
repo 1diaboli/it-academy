@@ -1,6 +1,6 @@
-package com.javacourse.se.task4.smartstore;
+package com.javacourse.se.task4_5.smartstore;
 
-import com.javacourse.se.task4.smartinterface.Smart;
+import com.javacourse.se.task4_5.smartinterface.Smart;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Store<T extends Smart> {
 
   private T item;
-  private double cash;
   private T[] products;
+  private double cash;
   private int count;
 
   public Store(T[] products) {
@@ -29,20 +29,22 @@ public class Store<T extends Smart> {
     }
   }
 
-  public boolean purchase(double amountOfMoney) {
+  public boolean purchase() {
     Scanner scanner = new Scanner(System.in);
     int numberOfProduct;
+    int amountOfMoney;
     do {
       System.out.println("Select a product to buy: ");
       numberOfProduct = scanner.nextInt();
     } while (numberOfProduct < 0 || numberOfProduct > count - 1);
+    do {
+      System.out.println("Select your amount of money");
+      amountOfMoney = scanner.nextInt();
+    } while ( amountOfMoney < item.getPrice());
     item = products[numberOfProduct];
-    if (amountOfMoney >= item.getPrice()) {
-      deleteProduct(numberOfProduct);
-      cash += item.getPrice();
-      return true;
-    }
-    return false;
+    deleteProduct(numberOfProduct);
+    cash += item.getPrice();
+    return true;
   }
 
   public boolean sell(T item) {

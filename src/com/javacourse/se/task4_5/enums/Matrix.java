@@ -1,4 +1,4 @@
-package com.javacourse.se.task4.enums;
+package com.javacourse.se.task4_5.enums;
 
 public enum Matrix {
 

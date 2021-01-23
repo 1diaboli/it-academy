@@ -1,6 +1,6 @@
-package com.javacourse.se.task4.phones;
+package com.javacourse.se.task4_5.phones;
 
-import com.javacourse.se.task4.enums.Brand;
+import com.javacourse.se.task4_5.enums.Brand;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

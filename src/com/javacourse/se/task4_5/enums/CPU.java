@@ -1,4 +1,4 @@
-package com.javacourse.se.task4.enums;
+package com.javacourse.se.task4_5.enums;
 
 public enum CPU {
 
@@ -6,6 +6,7 @@ public enum CPU {
   SNAPDRAGON_865_PLUS("SNAPDRAGON 865 Plus"),
   SNAPDRAGON_855("SNAPDRAGON 855"),
   SNAPDRAGON_855_PLUS("SNAPDRAGON 855 Plus"),
+  APPLE_A14("APPLE A14"),
   APPLE_A13("APPLE A13"),
   APPLE_A12("APPLE A12"),
   APPLE_A11("APPLE A11"),
@@ -15,6 +16,7 @@ public enum CPU {
   EXYNOS_990("EXYNOS 990"),
   EXYNOS_9820("EXYNOS 9820"),
   EXYNOS_9825("EXYNOS 9825"),
+  EXYNOS_2100("EXYNOS 2100"),
   KIRIN_990("KIRIN 990"),
   KIRIN_980("KIRIN 980"),
   KIRIN_985("KIRIN 985");

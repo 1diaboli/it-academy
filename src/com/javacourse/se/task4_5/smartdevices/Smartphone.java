@@ -1,11 +1,11 @@
-package com.javacourse.se.task4.smartdevices;
+package com.javacourse.se.task4_5.smartdevices;
 
-import com.javacourse.se.task4.phones.Phone;
-import com.javacourse.se.task4.enums.Brand;
-import com.javacourse.se.task4.enums.CPU;
-import com.javacourse.se.task4.enums.Matrix;
-import com.javacourse.se.task4.enums.OS;
-import com.javacourse.se.task4.smartinterface.Smart;
+import com.javacourse.se.task4_5.phones.Phone;
+import com.javacourse.se.task4_5.enums.Brand;
+import com.javacourse.se.task4_5.enums.CPU;
+import com.javacourse.se.task4_5.enums.Matrix;
+import com.javacourse.se.task4_5.enums.OS;
+import com.javacourse.se.task4_5.smartinterface.Smart;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.Objects;
@@ -19,7 +19,6 @@ public class Smartphone extends Phone implements Smart {
   private OS os;
   private int sizeOfRAM;
   private int sizeOfMemory;
-  private int cameraResolution;
   private int sizeOfBattery;
   private double price;
 
@@ -27,9 +26,8 @@ public class Smartphone extends Phone implements Smart {
   }
 
   public Smartphone(Brand brand, String model, Color color, Calendar releaseDate,
-      double sizeOfDisplay, Matrix matrix, String screenResolution, CPU cpu,
-      OS os, int sizeOfRAM, int sizeOfMemory, int cameraResolution, int sizeOfBattery,
-      double price) {
+      double sizeOfDisplay, Matrix matrix, String screenResolution,
+      CPU cpu, OS os, int sizeOfRAM, int sizeOfMemory, int sizeOfBattery, double price) {
     super(brand, model, color, releaseDate);
     this.sizeOfDisplay = sizeOfDisplay;
     this.matrix = matrix;
@@ -38,7 +36,6 @@ public class Smartphone extends Phone implements Smart {
     this.os = os;
     this.sizeOfRAM = sizeOfRAM;
     this.sizeOfMemory = sizeOfMemory;
-    this.cameraResolution = cameraResolution;
     this.sizeOfBattery = sizeOfBattery;
     this.price = price;
   }
@@ -79,12 +76,99 @@ public class Smartphone extends Phone implements Smart {
     return sizeOfMemory;
   }
 
-  public int getCameraResolution() {
-    return cameraResolution;
-  }
-
   public int getSizeOfBattery() {
     return sizeOfBattery;
+  }
+
+  public class MainCamera {
+
+    private String additionalModule;
+    private boolean opticalZoom;
+    private boolean hasFlash;
+    private double cameraResolution;
+    private boolean hasAutoFocus;
+    private boolean opticalStabilization;
+    private String diaphragm;
+
+    public MainCamera() {
+
+    }
+
+    public MainCamera(String additionalModule, boolean opticalZoom, boolean hasFlash,
+        double cameraResolution, boolean hasAutoFocus, boolean opticalStabilization,
+        String diaphragm) {
+      this.additionalModule = additionalModule;
+      this.opticalZoom = opticalZoom;
+      this.hasFlash = hasFlash;
+      this.cameraResolution = cameraResolution;
+      this.hasAutoFocus = hasAutoFocus;
+      this.opticalStabilization = opticalStabilization;
+      this.diaphragm = diaphragm;
+    }
+
+    public String getAdditionalModules() {
+      return additionalModule;
+    }
+
+    public boolean isOpticalZoom() {
+      return opticalZoom;
+    }
+
+    public boolean isHasFlash() {
+      return hasFlash;
+    }
+
+    public double getCameraResolution() {
+      return cameraResolution;
+    }
+
+    public boolean isHasAutoFocus() {
+      return hasAutoFocus;
+    }
+
+    public boolean isOpticalStabilization() {
+      return opticalStabilization;
+    }
+
+    public String getDiaphragm() {
+      return diaphragm;
+    }
+  }
+
+  public class FrontCamera {
+
+    private boolean hasFlash;
+    private double cameraResolution;
+    private boolean hasAutoFocus;
+    private String diaphragm;
+
+    public FrontCamera() {
+
+    }
+
+    public FrontCamera(boolean hasFlash, double cameraResolution, boolean hasAutoFocus,
+        String diaphragm) {
+      this.hasFlash = hasFlash;
+      this.cameraResolution = cameraResolution;
+      this.hasAutoFocus = hasAutoFocus;
+      this.diaphragm = diaphragm;
+    }
+
+    public boolean isHasFlash() {
+      return hasFlash;
+    }
+
+    public double getCameraResolution() {
+      return cameraResolution;
+    }
+
+    public boolean isHasAutoFocus() {
+      return hasAutoFocus;
+    }
+
+    public String getDiaphragm() {
+      return diaphragm;
+    }
   }
 
   @Override
@@ -122,17 +206,16 @@ public class Smartphone extends Phone implements Smart {
     Smartphone that = (Smartphone) o;
     return Double.compare(that.sizeOfDisplay, sizeOfDisplay) == 0
         && sizeOfRAM == that.sizeOfRAM && sizeOfMemory == that.sizeOfMemory
-        && cameraResolution == that.cameraResolution && sizeOfBattery == that.sizeOfBattery
-        && Double.compare(that.price, price) == 0 && matrix == that.matrix
-        && Objects.equals(screenResolution, that.screenResolution) && cpu == that.cpu
-        && os == that.os;
+        && sizeOfBattery == that.sizeOfBattery && Double.compare(that.price, price) == 0
+        && matrix == that.matrix && Objects.equals(screenResolution, that.screenResolution)
+        && cpu == that.cpu && os == that.os;
   }
 
   @Override
   public int hashCode() {
     return Objects
         .hash(super.hashCode(), sizeOfDisplay, matrix, screenResolution, cpu, os, sizeOfRAM,
-            sizeOfMemory, cameraResolution, sizeOfBattery, price);
+            sizeOfMemory, sizeOfBattery, price);
   }
 
   @Override
@@ -149,7 +232,6 @@ public class Smartphone extends Phone implements Smart {
     sb.append(", os=").append(os);
     sb.append(", sizeOfRAM=").append(sizeOfRAM);
     sb.append(", sizeOfMemory=").append(sizeOfMemory);
-    sb.append(", cameraResolution=").append(cameraResolution);
     sb.append(", sizeOfBattery=").append(sizeOfBattery);
     sb.append(", price=").append(price);
     sb.append('}');
